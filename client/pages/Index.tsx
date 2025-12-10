@@ -116,12 +116,13 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <BackToTop />
 
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background py-20 md:py-32">
           <div className="container mx-auto max-w-6xl px-4 md:px-6">
-            <div className="animate-slide-up space-y-6">
+            <div className="animate-slide-up space-y-8">
               <div className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                 Welcome to my portfolio
               </div>
@@ -147,6 +148,33 @@ export default function Index() {
                 >
                   Get In Touch
                 </Link>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary/30 px-6 py-3 font-medium text-foreground hover:border-primary/60 transition-colors"
+                >
+                  Download Resume
+                </a>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 pt-8 border-t border-border/40">
+                <div className="text-center md:text-left">
+                  <div className="text-3xl font-bold text-primary">6+</div>
+                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="text-3xl font-bold text-primary">500+</div>
+                  <p className="text-sm text-muted-foreground">Clients Served</p>
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="text-3xl font-bold text-primary">50+</div>
+                  <p className="text-sm text-muted-foreground">Technologies</p>
+                </div>
+                <div className="text-center md:text-left">
+                  <div className="text-3xl font-bold text-primary">4</div>
+                  <p className="text-sm text-muted-foreground">Certifications</p>
+                </div>
               </div>
             </div>
           </div>
