@@ -95,54 +95,71 @@ export default function Experience() {
         {/* Experience Timeline */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto max-w-6xl px-4 md:px-6">
-            <div className="space-y-8">
-              {experiences.map((exp, idx) => (
-                <div
-                  key={exp.id}
-                  className="rounded-lg border border-border bg-card overflow-hidden hover:border-primary/50 transition-colors"
-                >
-                  {/* Header */}
-                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 px-6 md:px-8 py-6 md:py-8 border-b border-border">
-                    <div className="flex flex-col justify-between md:flex-row md:items-start gap-4">
-                      <div>
-                        <h2 className="text-2xl font-bold text-foreground">
-                          {exp.title}
-                        </h2>
-                        <p className="text-lg text-primary font-semibold mt-1">
-                          {exp.company}
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {exp.period} • {exp.location}
-                        </p>
-                      </div>
-                      <div className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full w-fit font-medium">
-                        {idx === 0 ? "Current" : "Past"}
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/20 transform -translate-x-1/2" />
+
+              <div className="space-y-12">
+                {experiences.map((exp, idx) => (
+                  <div
+                    key={exp.id}
+                    className={`relative md:flex md:gap-8 ${
+                      idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    {/* Timeline Dot */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-center absolute left-1/2 top-8 transform -translate-x-1/2">
+                      <div className="w-5 h-5 rounded-full bg-primary border-4 border-background shadow-lg" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="md:w-1/2">
+                      <div className="rounded-lg border border-border bg-card overflow-hidden hover:border-primary/50 transition-all">
+                        {/* Header */}
+                        <div className="bg-gradient-to-r from-primary/5 to-secondary/5 px-6 md:px-8 py-6 md:py-8 border-b border-border">
+                          <div className="flex flex-col justify-between gap-4">
+                            <div>
+                              <h2 className="text-2xl font-bold text-foreground">
+                                {exp.title}
+                              </h2>
+                              <p className="text-lg text-primary font-semibold mt-1">
+                                {exp.company}
+                              </p>
+                              <p className="text-sm text-muted-foreground mt-1">
+                                {exp.period} • {exp.location}
+                              </p>
+                            </div>
+                            <div className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full w-fit font-medium">
+                              {idx === 0 ? "Current" : "Past"}
+                            </div>
+                          </div>
+                          <p className="mt-4 text-muted-foreground">
+                            {exp.description}
+                          </p>
+                        </div>
+
+                        {/* Achievements */}
+                        <div className="px-6 md:px-8 py-8">
+                          <h3 className="mb-4 font-semibold text-foreground">
+                            Key Achievements & Responsibilities
+                          </h3>
+                          <ul className="space-y-3">
+                            {exp.achievements.map((achievement, i) => (
+                              <li
+                                key={i}
+                                className="flex gap-3 text-muted-foreground text-sm"
+                              >
+                                <span className="mt-1.5 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                                {achievement}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                    <p className="mt-4 text-muted-foreground">
-                      {exp.description}
-                    </p>
                   </div>
-
-                  {/* Achievements */}
-                  <div className="px-6 md:px-8 py-8">
-                    <h3 className="mb-4 font-semibold text-foreground">
-                      Key Achievements & Responsibilities
-                    </h3>
-                    <ul className="space-y-3">
-                      {exp.achievements.map((achievement, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 text-muted-foreground text-sm"
-                        >
-                          <span className="mt-1.5 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
