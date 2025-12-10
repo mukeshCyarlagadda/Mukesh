@@ -104,6 +104,16 @@ export default function Projects() {
     setExpandedProject(expandedProject === index ? null : index);
   };
 
+  // Get unique technologies
+  const allTechs = Array.from(
+    new Set(projects.flatMap((p) => p.technologies))
+  ).sort();
+
+  // Filter projects based on selected technology
+  const filteredProjects = selectedTech
+    ? projects.filter((p) => p.technologies.includes(selectedTech))
+    : projects;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
