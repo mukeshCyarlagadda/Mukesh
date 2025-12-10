@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Brain, Zap } from "lucide-react";
+import { ArrowRight, Code, Brain, Zap, Award } from "lucide-react";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export default function Index() {
   const skills = {
