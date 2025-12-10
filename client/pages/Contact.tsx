@@ -14,7 +14,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -151,10 +151,7 @@ export default function Contact() {
               </div>
 
               {/* Contact Form */}
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6 md:col-span-2"
-              >
+              <form onSubmit={handleSubmit} className="space-y-6 md:col-span-2">
                 <h2 className="text-2xl font-bold text-foreground">
                   Send Me a Message
                 </h2>
@@ -162,7 +159,9 @@ export default function Contact() {
                 {isSubmitted && (
                   <div className="rounded-lg bg-green-50 border border-green-200 p-4 text-sm text-green-800">
                     <p className="font-medium">Message sent successfully!</p>
-                    <p>Thank you for reaching out. I'll get back to you soon.</p>
+                    <p>
+                      Thank you for reaching out. I'll get back to you soon.
+                    </p>
                   </div>
                 )}
 
@@ -288,7 +287,10 @@ export default function Contact() {
                   a: "I have extensive experience with AWS, Google Cloud Platform, and Microsoft Azure, including deployment and optimization.",
                 },
               ].map((faq, idx) => (
-                <div key={idx} className="rounded-lg border border-border bg-card p-6">
+                <div
+                  key={idx}
+                  className="rounded-lg border border-border bg-card p-6"
+                >
                   <h3 className="mb-2 font-semibold text-foreground">
                     {faq.q}
                   </h3>

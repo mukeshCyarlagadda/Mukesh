@@ -169,15 +169,16 @@ export default function Index() {
                     My specialization includes healthcare AI automation,
                     particularly administrative workflow optimization for
                     hospitals and dental clinics while ensuring regulatory
-                    compliance (HIPAA). I'm proficient in Python, R, and advanced
-                    ML frameworks including PyTorch, TensorFlow, and Hugging Face.
+                    compliance (HIPAA). I'm proficient in Python, R, and
+                    advanced ML frameworks including PyTorch, TensorFlow, and
+                    Hugging Face.
                   </p>
                   <p>
                     I excel at designing and implementing generative AI
-                    solutions, including RAG systems, multi-agent frameworks, and
-                    automated document processing. I'm skilled in cloud-native ML
-                    deployments (GCP, AWS, Azure) and MLOps practices for
-                    managing complex data pipelines.
+                    solutions, including RAG systems, multi-agent frameworks,
+                    and automated document processing. I'm skilled in
+                    cloud-native ML deployments (GCP, AWS, Azure) and MLOps
+                    practices for managing complex data pipelines.
                   </p>
                 </div>
               </div>

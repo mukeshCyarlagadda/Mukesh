@@ -19,7 +19,12 @@ export default function Projects() {
         "Accuracy: 96.3% (outperforming traditional CNN approaches)",
         "Key Innovation: Custom augmentation for improved generalization",
       ],
-      technologies: ["PyTorch", "Computer Vision", "Deep Learning", "Transfer Learning"],
+      technologies: [
+        "PyTorch",
+        "Computer Vision",
+        "Deep Learning",
+        "Transfer Learning",
+      ],
       impact:
         "Outperformed traditional CNN approaches in plant disease detection, demonstrating the effectiveness of Vision Transformers for agricultural AI applications.",
     },
@@ -35,7 +40,13 @@ export default function Projects() {
         "Indexing: Efficient vector store indexing for fast retrieval",
         "Accuracy Improvement: 87% over baseline methods",
       ],
-      technologies: ["LangChain", "OpenAI", "RAG", "Vector Databases", "Semantic Search"],
+      technologies: [
+        "LangChain",
+        "OpenAI",
+        "RAG",
+        "Vector Databases",
+        "Semantic Search",
+      ],
       impact:
         "Improved query response accuracy by 87% by combining retrieval with generation, enabling more accurate and contextually relevant answers.",
     },
@@ -51,7 +62,12 @@ export default function Projects() {
         "Input: Restaurant review texts",
         "Output: Structured food and service scores with confidence metrics",
       ],
-      technologies: ["AutoGen", "Multi-Agent Systems", "NLP", "Sentiment Analysis"],
+      technologies: [
+        "AutoGen",
+        "Multi-Agent Systems",
+        "NLP",
+        "Sentiment Analysis",
+      ],
       impact:
         "Enabled automated restaurant quality assessment through multi-agent collaboration, reducing manual review analysis time while maintaining high accuracy.",
     },

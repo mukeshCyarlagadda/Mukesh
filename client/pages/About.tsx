@@ -100,9 +100,10 @@ export default function About() {
                     measurable value and aligns with organizational goals.
                   </p>
                   <p>
-                    I'm passionate about leveraging AI to solve complex real-world
-                    problems, particularly in automating critical business
-                    processes while maintaining compliance and security standards.
+                    I'm passionate about leveraging AI to solve complex
+                    real-world problems, particularly in automating critical
+                    business processes while maintaining compliance and security
+                    standards.
                   </p>
                 </div>
               </div>
@@ -181,7 +182,9 @@ export default function About() {
                       className="flex items-center gap-3 rounded-lg border border-border bg-card p-4"
                     >
                       <div className="h-3 w-3 rounded-full bg-primary flex-shrink-0" />
-                      <span className="font-medium text-foreground">{cert}</span>
+                      <span className="font-medium text-foreground">
+                        {cert}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -196,9 +199,9 @@ export default function About() {
                   I believe in collaborative problem-solving and continuous
                   learning. With strong cross-functional leadership skills, I
                   drive successful AI transformation initiatives by building
-                  trust, fostering innovation, and delivering results that exceed
-                  expectations. My approach is data-driven, user-centric, and
-                  always focused on creating lasting value.
+                  trust, fostering innovation, and delivering results that
+                  exceed expectations. My approach is data-driven, user-centric,
+                  and always focused on creating lasting value.
                 </p>
               </div>
             </div>
