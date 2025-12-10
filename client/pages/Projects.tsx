@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [selectedTech, setSelectedTech] = useState<string | null>(null);
 
   const projects = [
     {
