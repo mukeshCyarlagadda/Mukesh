@@ -22,6 +22,7 @@ export default function About() {
   const certifications = [
     "Google Cloud Certified Professional ML Engineer",
     "Oracle Cloud Professional GenAI Engineer",
+    "Databricks Associate ML Engineer Certification",
     "LLM Agents by UC Berkeley",
   ];
 
