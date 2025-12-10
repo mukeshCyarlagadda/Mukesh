@@ -106,7 +106,7 @@ export default function Projects() {
 
   // Get unique technologies
   const allTechs = Array.from(
-    new Set(projects.flatMap((p) => p.technologies))
+    new Set(projects.flatMap((p) => p.technologies)),
   ).sort();
 
   // Filter projects based on selected technology

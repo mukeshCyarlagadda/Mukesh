@@ -161,11 +161,15 @@ export default function Index() {
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4 pt-8 border-t border-border/40">
                 <div className="text-center md:text-left">
                   <div className="text-3xl font-bold text-primary">6+</div>
-                  <p className="text-sm text-muted-foreground">Years Experience</p>
+                  <p className="text-sm text-muted-foreground">
+                    Years Experience
+                  </p>
                 </div>
                 <div className="text-center md:text-left">
                   <div className="text-3xl font-bold text-primary">500+</div>
-                  <p className="text-sm text-muted-foreground">Clients Served</p>
+                  <p className="text-sm text-muted-foreground">
+                    Clients Served
+                  </p>
                 </div>
                 <div className="text-center md:text-left">
                   <div className="text-3xl font-bold text-primary">50+</div>
@@ -173,7 +177,9 @@ export default function Index() {
                 </div>
                 <div className="text-center md:text-left">
                   <div className="text-3xl font-bold text-primary">4</div>
-                  <p className="text-sm text-muted-foreground">Certifications</p>
+                  <p className="text-sm text-muted-foreground">
+                    Certifications
+                  </p>
                 </div>
               </div>
             </div>
@@ -325,17 +331,19 @@ export default function Index() {
                   </h3>
                   <div className="space-y-4">
                     {items.map((skill) => {
-                      const levelColor = {
-                        Expert: "bg-primary",
-                        Advanced: "bg-secondary",
-                        Intermediate: "bg-accent",
-                      }[skill.level] || "bg-muted";
+                      const levelColor =
+                        {
+                          Expert: "bg-primary",
+                          Advanced: "bg-secondary",
+                          Intermediate: "bg-accent",
+                        }[skill.level] || "bg-muted";
 
-                      const levelWidth = {
-                        Expert: "w-full",
-                        Advanced: "w-4/5",
-                        Intermediate: "w-3/5",
-                      }[skill.level] || "w-1/2";
+                      const levelWidth =
+                        {
+                          Expert: "w-full",
+                          Advanced: "w-4/5",
+                          Intermediate: "w-3/5",
+                        }[skill.level] || "w-1/2";
 
                       return (
                         <div key={skill.name}>
@@ -350,7 +358,9 @@ export default function Index() {
                           <div className="h-2 rounded-full bg-muted/30 overflow-hidden">
                             <div
                               className={`h-full ${levelColor} transition-all duration-500`}
-                              style={{ width: `${(["Expert", "Advanced", "Intermediate"].indexOf(skill.level) + 1) * 33.33}%` }}
+                              style={{
+                                width: `${(["Expert", "Advanced", "Intermediate"].indexOf(skill.level) + 1) * 33.33}%`,
+                              }}
                             />
                           </div>
                         </div>
