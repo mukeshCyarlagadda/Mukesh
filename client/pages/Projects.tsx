@@ -1,7 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function Projects() {
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
+
   const projects = [
     {
       title: "Fine-tuning Vision Transformer for Leaf Disease Detection",
@@ -79,6 +83,10 @@ export default function Projects() {
     },
   ];
 
+  const toggleProject = (index: number) => {
+    setExpandedProject(expandedProject === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -97,88 +105,98 @@ export default function Projects() {
           </div>
         </section>
 
-        {/* Projects Grid */}
+        {/* Projects Accordion */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto max-w-6xl px-4 md:px-6">
-            <div className="space-y-8">
+            <div className="space-y-4">
               {projects.map((project, idx) => (
                 <div
                   key={idx}
                   className="rounded-lg border border-border bg-card overflow-hidden hover:border-primary/50 transition-colors"
                 >
-                  {/* Header */}
-                  <div className="bg-gradient-to-r from-primary/5 to-secondary/5 px-6 md:px-8 py-6 border-b border-border">
-                    <div className="flex flex-col gap-2">
-                      <span className="inline-block w-fit rounded-full bg-secondary/20 px-3 py-1 text-xs font-semibold text-secondary">
+                  {/* Project Header Bar */}
+                  <button
+                    onClick={() => toggleProject(idx)}
+                    className="w-full px-6 md:px-8 py-6 flex items-start justify-between gap-4 hover:bg-secondary/5 transition-colors text-left"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-3">
                         {project.category}
                       </span>
-                      <h2 className="text-2xl font-bold text-foreground">
+                      <h2 className="text-xl font-bold text-foreground break-words">
                         {project.title}
                       </h2>
                     </div>
-                  </div>
+                    <ChevronDown
+                      className={`h-6 w-6 text-primary flex-shrink-0 transition-transform duration-300 ${
+                        expandedProject === idx ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                  {/* Content */}
-                  <div className="px-6 md:px-8 py-8">
-                    <div className="grid gap-8 md:grid-cols-2">
-                      {/* Description & Details */}
-                      <div className="space-y-6">
-                        <div>
-                          <h3 className="mb-2 font-semibold text-foreground">
-                            Overview
-                          </h3>
-                          <p className="text-muted-foreground">
-                            {project.description}
-                          </p>
-                        </div>
+                  {/* Expandable Content */}
+                  {expandedProject === idx && (
+                    <div className="border-t border-border px-6 md:px-8 py-8 bg-gradient-to-r from-primary/5 to-secondary/5 animate-slide-up">
+                      <div className="grid gap-8 md:grid-cols-2">
+                        {/* Description & Details */}
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="mb-2 font-semibold text-foreground">
+                              Overview
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {project.description}
+                            </p>
+                          </div>
 
-                        <div>
-                          <h3 className="mb-3 font-semibold text-foreground">
-                            Technical Details
-                          </h3>
-                          <ul className="space-y-2">
-                            {project.details.map((detail, i) => (
-                              <li
-                                key={i}
-                                className="flex gap-2 text-sm text-muted-foreground"
-                              >
-                                <span className="text-primary">•</span>
-                                {detail}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* Technologies & Impact */}
-                      <div className="space-y-6">
-                        <div>
-                          <h3 className="mb-3 font-semibold text-foreground">
-                            Technologies Used
-                          </h3>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech) => (
-                              <span
-                                key={tech}
-                                className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                              >
-                                {tech}
-                              </span>
-                            ))}
+                          <div>
+                            <h3 className="mb-3 font-semibold text-foreground">
+                              Technical Details
+                            </h3>
+                            <ul className="space-y-2">
+                              {project.details.map((detail, i) => (
+                                <li
+                                  key={i}
+                                  className="flex gap-2 text-sm text-muted-foreground"
+                                >
+                                  <span className="text-primary">•</span>
+                                  {detail}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
 
-                        <div className="rounded-lg bg-secondary/5 p-4 border border-border">
-                          <h3 className="mb-2 font-semibold text-foreground">
-                            Business Impact
-                          </h3>
-                          <p className="text-sm text-muted-foreground">
-                            {project.impact}
-                          </p>
+                        {/* Technologies & Impact */}
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="mb-3 font-semibold text-foreground">
+                              Technologies Used
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                              {project.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="rounded-lg bg-white/50 dark:bg-secondary/10 p-4 border border-secondary/30">
+                            <h3 className="mb-2 font-semibold text-foreground">
+                              Business Impact
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              {project.impact}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
