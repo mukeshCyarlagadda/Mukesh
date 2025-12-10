@@ -56,18 +56,56 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        {/* Right Side Actions */}
+        <div className="flex items-center gap-2">
+          {/* Download Resume Button */}
+          <a
+            href="/resume.pdf"
+            download
+            className="hidden sm:flex items-center gap-1 rounded-md bg-primary/10 px-3 py-2 text-sm font-medium text-primary hover:bg-primary/20 transition-colors"
+            title="Download Resume"
+          >
+            <Download className="h-4 w-4" />
+            <span className="hidden md:inline">Resume</span>
+          </a>
+
+          {/* GitHub Link */}
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md p-2 text-foreground hover:bg-accent/10 transition-colors"
+            aria-label="GitHub"
+          >
+            <Github className="h-5 w-5" />
+          </a>
+
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="rounded-md p-2 text-foreground hover:bg-accent/10 transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden rounded-md p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -88,6 +126,14 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-primary hover:bg-primary/10 rounded-md"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
+            </a>
           </div>
         </div>
       )}
