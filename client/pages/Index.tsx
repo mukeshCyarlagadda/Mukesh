@@ -320,18 +320,42 @@ export default function Index() {
                   key={category}
                   className="rounded-lg border border-border bg-card p-6"
                 >
-                  <h3 className="mb-4 font-semibold text-foreground">
+                  <h3 className="mb-6 font-semibold text-foreground">
                     {category}
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  <div className="space-y-4">
+                    {items.map((skill) => {
+                      const levelColor = {
+                        Expert: "bg-primary",
+                        Advanced: "bg-secondary",
+                        Intermediate: "bg-accent",
+                      }[skill.level] || "bg-muted";
+
+                      const levelWidth = {
+                        Expert: "w-full",
+                        Advanced: "w-4/5",
+                        Intermediate: "w-3/5",
+                      }[skill.level] || "w-1/2";
+
+                      return (
+                        <div key={skill.name}>
+                          <div className="flex justify-between mb-1">
+                            <span className="text-xs font-medium text-foreground">
+                              {skill.name}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {skill.level}
+                            </span>
+                          </div>
+                          <div className="h-2 rounded-full bg-muted/30 overflow-hidden">
+                            <div
+                              className={`h-full ${levelColor} transition-all duration-500`}
+                              style={{ width: `${(["Expert", "Advanced", "Intermediate"].indexOf(skill.level) + 1) * 33.33}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
